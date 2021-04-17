@@ -1,2 +1,3 @@
-import React from "react";
-import ReactTable from "react-table";  
+import React, { useState, useEffect } from "react";
+
+import Table from "./components/Table";
