@@ -17,6 +17,9 @@ function Table({ columns, data }) {
         },
         useFilters
     );
+    // Create states for searching/filtering functionalities
+    const [firstNameSearch, setFirstNameSearch] = useState("");
+    const [lastNameSearch, setLastNameSearch] = useState("");
 
     return (
         <div>
