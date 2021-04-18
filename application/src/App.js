@@ -1,5 +1,6 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useMemo} from "react";
 import axios from "axios";
+
 import Table from "./components/Table";
 
 function App() {
@@ -14,7 +15,33 @@ function App() {
         console.log(result.data)
       })();
     }, []);
-    
+    // columns for the table
+    const columns = useMemo(
+        () => [
+          {
+            // Table header
+            Header: "Employee Directory",
+            // Table columns
+            columns: [
+              {
+                Header: "Name",
+                accessor: "user.name",  
+              },
+              {
+                Header: "Type",
+                accessor: "user.gender"
+              }
+            ]
+          },
+        ],
+        []
+      );
+
+    return (
+        <div className="App">
+        <Table columns={columns} data={data} />
+        </div>
+    );
 }
   
   export default App;
