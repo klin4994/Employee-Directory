@@ -7,7 +7,6 @@ function Table({ columns, data }) {
     const {
       getTableProps, // table props from react-table
       getTableBodyProps, // table body props from react-table
-      headerGroups, // headerGroups that includes all headers
       rows, // rows for the table
       prepareRow, // Prepare the row before getting the row props
     } = useTable(

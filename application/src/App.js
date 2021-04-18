@@ -10,10 +10,9 @@ function App() {
     // useEffect method to set the state for data once the component is mounted
     useEffect(() => {
       (async () => {
-        // query to return sets of data for 20 different users
+        // query to retrieve sets of data for 20 different users
         const result = await axios("https://randomuser.me/api/?results=20");
-        setData(result.data)
-        console.log(result.data)
+        setData(result.data.results)
       })();
     }, []);
     // columns for the table
@@ -25,12 +24,16 @@ function App() {
             // Table columns
             columns: [
               {
-                Header: "Name",
-                accessor: "user.name",  
+                Header: "First name",
+                accessor: "name.first",  
               },
               {
-                Header: "Type",
-                accessor: "user.gender"
+                Header: "Last name",
+                accessor: "name.last",  
+              },
+              {
+                Header: "Gender",
+                accessor: "gender"
               }
             ]
           },
