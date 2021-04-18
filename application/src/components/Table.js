@@ -1,5 +1,5 @@
-import React from "react";
-import { useTable, useFilters, useState} from "react-table";
+import React, {useState} from "react";
+import { useTable, useFilters} from "react-table";
 
 function Table({ columns, data }) {
     
@@ -10,6 +10,7 @@ function Table({ columns, data }) {
       headerGroups, // headerGroups that includes all headers
       rows, // rows for the table
       prepareRow, // Prepare the row before getting the row props
+      setFilter, // sets filters for columns
     } = useTable(
         {
             columns,
@@ -20,22 +21,37 @@ function Table({ columns, data }) {
     // Create states for searching/filtering functionalities
     const [firstNameSearch, setFirstNameSearch] = useState("");
     const [lastNameSearch, setLastNameSearch] = useState("");
-
+    
+    // Update the first name state when input changes
+    const handleFirstNameChange = e => {
+        const value = e.target.value || undefined;
+        setFirstNameSearch(value);
+        setFilter("name.first", value)
+    };
+    // Update the last name state when input changes
+    const handleLastNameChange = e => {
+        const value = e.target.value || undefined;
+        setLastNameSearch(value);
+        setFilter("name.last", value)
+    };
     return (
         <div>
             <input
-
+                value={firstNameSearch}
+                onChange={handleFirstNameChange}
                 placeholder={"Search first name..."}
             />
             <input
-
+                value={lastNameSearch}
+                onChange={handleLastNameChange}
                 placeholder={"Search last name..."}
             />
             <thead>
                 {headerGroups.map(headerGroup => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map(column => (
-                    <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                    <th {...column.getHeaderProps()}>{column.render("Header")}
+                    </th>
                     ))}
                 </tr>
                 ))}
