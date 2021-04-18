@@ -1,5 +1,5 @@
 import React from "react";
-import { useTable} from "react-table";
+import { useTable, useFilters, useState} from "react-table";
 
 function Table({ columns, data }) {
     
@@ -15,10 +15,19 @@ function Table({ columns, data }) {
             columns,
             data
         },
+        useFilters
     );
-    
+
     return (
         <div>
+            <input
+
+                placeholder={"Search first name..."}
+            />
+            <input
+
+                placeholder={"Search last name..."}
+            />
             <thead>
                 {headerGroups.map(headerGroup => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
