@@ -10,6 +10,7 @@ function App() {
     // useEffect method to set the state for data once the component is mounted
     useEffect(() => {
       (async () => {
+        // query to return sets of data for 20 different users
         const result = await axios("https://randomuser.me/api/?results=20");
         setData(result.data)
         console.log(result.data)
