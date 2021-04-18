@@ -7,6 +7,7 @@ function Table({ columns, data }) {
     const {
       getTableProps, // table props from react-table
       getTableBodyProps, // table body props from react-table
+      headerGroups, // headerGroups that includes all headers
       rows, // rows for the table
       prepareRow, // Prepare the row before getting the row props
     } = useTable(
@@ -18,7 +19,15 @@ function Table({ columns, data }) {
     
     return (
         <div>
-
+            <thead>
+                {headerGroups.map(headerGroup => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                    {headerGroup.headers.map(column => (
+                    <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                    ))}
+                </tr>
+                ))}
+            </thead>
             <table {...getTableProps()}>
             <tbody {...getTableBodyProps()}>
                 {rows.map((row, i) => {

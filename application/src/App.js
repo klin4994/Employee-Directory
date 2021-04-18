@@ -13,6 +13,7 @@ function App() {
         // query to retrieve sets of data for 20 different users
         const result = await axios("https://randomuser.me/api/?results=20");
         setData(result.data.results)
+        console.log(result.data.results)
       })();
     }, []);
     // columns for the table
@@ -34,6 +35,14 @@ function App() {
               {
                 Header: "Gender",
                 accessor: "gender"
+              },
+              {
+                Header: "Phone number",
+                accessor: "phone"
+              },
+              {
+                Header: "Age",
+                accessor: "dob.age"
               }
             ]
           },
