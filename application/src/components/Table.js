@@ -8,9 +8,8 @@ function Table({ columns, data }) {
       getTableProps, // table props from react-table
       getTableBodyProps, // table body props from react-table
       headerGroups, // headerGroups that includes all headers
-      rows, // rows for the table based on the data passed
+      rows, // rows for the table
       prepareRow, // Prepare the row before getting the row props
-      setFilter // sets filters for columns
     } = useTable(
         {
             columns,
