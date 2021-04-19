@@ -26,7 +26,8 @@ function App() {
             columns: [
               {
                 Header: "First name",
-                accessor: "name.first",  
+                accessor: "name.first", 
+                canSort: true 
               },
               {
                 Header: "Last name",

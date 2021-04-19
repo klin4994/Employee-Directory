@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useTable, useFilters} from "react-table";
+import { useTable, useFilters, useSortBy} from "react-table";
 
 function Table({ columns, data }) {
     
@@ -16,7 +16,8 @@ function Table({ columns, data }) {
             columns,
             data
         },
-        useFilters
+        useFilters,
+        useSortBy
     );
     // Create states for searching/filtering functionalities
     const [firstNameSearch, setFirstNameSearch] = useState("");
@@ -50,7 +51,13 @@ function Table({ columns, data }) {
                 {headerGroups.map(headerGroup => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map(column => (
-                    <th {...column.getHeaderProps()}>{column.render("Header")}
+                    <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render("Header")}
+                     <span>
+                    { column.isSortedDesc
+                        ? ' 🔽'
+                        : ' 🔼'
+                      }
+                  </span>
                     </th>
                     ))}
                 </tr>
