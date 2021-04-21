@@ -47,6 +47,7 @@ function Table({ columns, data }) {
                 onChange={handleLastNameChange}
                 placeholder={"Search last name..."}
             />
+            <table {...getTableProps()}>
             <thead>
                 {headerGroups.map(headerGroup => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
@@ -63,7 +64,7 @@ function Table({ columns, data }) {
                 </tr>
                 ))}
             </thead>
-            <table {...getTableProps()}>
+            
             <tbody {...getTableBodyProps()}>
                 {rows.map((row, i) => {
                 prepareRow(row);
