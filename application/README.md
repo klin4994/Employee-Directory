@@ -17,10 +17,7 @@
 <h1>Description</h1>
 <p>First React application I built. This is an table that contains general employee data, and includes sorting and filtering functionalities.</p>
 <h1>Installation</h1>
-<p>Run</p> 
-```javascript 
-npm start
-``` 
+<p>N/A</p>
 <br>
 <h1>Usage</h1>
 <p>N/A</p>
