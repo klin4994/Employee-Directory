@@ -21,7 +21,7 @@ function App() {
         () => [
           {
             // Table header
-            Header: "Employee Directory",
+            Header: "Employee Directory (click headings below to sort)",
             // Table columns
             columns: [
               {

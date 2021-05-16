@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useTable, useFilters, useSortBy} from "react-table";
-
+import "./index.css"
 function Table({ columns, data }) {
     
     // Use the useTable Hook to send the columns and data to build the table
@@ -54,10 +54,6 @@ function Table({ columns, data }) {
                     {headerGroup.headers.map(column => (
                     <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render("Header")}
                      <span>
-                    { column.isSortedDesc
-                        ? ' 🔽'
-                        : ' 🔼'
-                      }
                   </span>
                     </th>
                     ))}
