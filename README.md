@@ -20,7 +20,7 @@
 <p>N/A</p>
 <br>
 <h1>Usage</h1>
-<p>Demo: https://klin4994.github.io/Employee-Directory/</p>
+<p>Demo: https://kvlin.github.io/Employee-Directory/</p>
 <br>
 <h1>Contributing</h1>
 <p>Pull request welcomed!</p>
